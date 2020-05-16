@@ -1,13 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateLoginForm } from '../actions/loginForm.js'
+import { updateLoginForm } from '../../actions/loginForm.js'
 
-const Login = ({email, password}) => {
-
+const Login = ({ loginForm, updateLoginForm }) => {
+    const handleInputChange = event => {
+        const { name, value } = event.target
+        const updatedFormInfo = { ...loginForm, [name]: value }
+        updateLoginForm(updatedFormInfo)
+    }
     return(
         <form onSubmit={undefined}>
-            <input value={undefined} name="email" type="text" onChange={undefined} placeholder="email" />
-            <input value={undefined} name="password" type="text" onChange={undefined} placeholder="password" />
+            <input value={ loginForm.email } name="email" type="text" onChange={ handleInputChange } placeholder="email" />
+            <input value={ loginForm.password} name="password" type="text" onChange={ handleInputChange } placeholder="password" />
             <input type="submit" value="login" />
         </form>    
     )
@@ -20,8 +24,7 @@ const Login = ({email, password}) => {
 // }
 const mapStateToProps = state => {
     return {
-        email: state.loginForm.email,
-        password: state.loginForm.password
+        loginForm: state.loginForm
     }
 }
 
