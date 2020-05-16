@@ -13,19 +13,18 @@ export const getLocations = locations => {
 export function fetchLocations() {
     return fetch("http://localhost:3001/locations", {
 
-    method: "GET",
-    headers: {
+        method: "GET",
+        headers: {
         "Content-Type": "application/json"
-    },
-})
+        },
+    })
         .then(resp => resp.json())
         .then(locations => {
             if (locations.error) {
-                alert(destinations.error)
+                alert(locations.error)
             } else {
                 dispatchEvent(getLocations(locations.data))
             }
         })
         .catch(console.log)
     }
-}
