@@ -2,7 +2,7 @@
 
 export const getLocations = locations => {
     return {
-        type: "GET_LOCTIONS",
+        type: "GET_LOCATIONS",
         locations
     }
 }

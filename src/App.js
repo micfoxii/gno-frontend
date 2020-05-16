@@ -2,12 +2,16 @@ import React from 'react';
 import './App.css';
 
 import { connect } from 'react-redux'
-import { getLocations } from './actions/locations/locations'
+import { fetchLocations } from './actions/locations/locations'
 
 
 
 class App extends React.Component {
   
+  componentDidMount(){
+    this.props.fetchLocations()
+  }
+
   render() {
     const {locations} = this.props
     
@@ -19,11 +23,11 @@ class App extends React.Component {
   
   const mapStateToProps = state => {
     return({
-      locations: state.locationReducer
+      locations: state.locations
     })
   }
 
 
 
 
-export default connect(mapStateToProps, {getLocations}(App));
+export default connect(mapStateToProps, {fetchLocations})(App)
