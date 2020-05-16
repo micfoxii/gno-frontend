@@ -1,0 +1,31 @@
+// SYNC
+
+export const getLocations = locations => {
+    return {
+        type: "GET_LOCTIONS",
+        locations
+    }
+}
+
+
+//ASYNC
+
+export function fetchLocations() {
+    return fetch("http://localhost:3001/locations", {
+
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json"
+    },
+})
+        .then(resp => resp.json())
+        .then(locations => {
+            if (locations.error) {
+                alert(destinations.error)
+            } else {
+                dispatchEvent(getLocations(locations.data))
+            }
+        })
+        .catch(console.log)
+    }
+}

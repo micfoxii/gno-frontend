@@ -1,3 +1,4 @@
+// SYNC 
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
@@ -5,3 +6,11 @@ export const setCurrentUser = user => {
     }
 }
 
+
+//ASYNC
+
+// export const login = credentials => {
+//     return dispatch => {
+//         return fetch("http://localhost:3000/users)
+//     }
+// }
