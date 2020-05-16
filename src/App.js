@@ -7,14 +7,23 @@ import { getLocations } from './actions/locations/locations'
 
 
 class App extends React.Component {
-
-
-  render() {
-      return (
-        <h1>This is where I put things</h1>
-      );
-  }
   
-}
+  render() {
+    const {locations} = this.props
+    
+    return (
+        <h1>This is where I put things</h1>
+    );
+  }
+}  
+  
+  const mapStateToProps = state => {
+    return({
+      locations: state.locationReducer
+    })
+  }
 
-export default App;
+
+
+
+export default connect(mapStateToProps, {getLocations}(App));
