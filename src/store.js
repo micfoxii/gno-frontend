@@ -5,7 +5,7 @@ import currentUser from './reducers/users/currentUser.js'
 import locationsReducer from './reducers/locations/locations.js'
 import currentLocation from './reducers/locations/currentLocation.js'
 
-import loginForm from './reducers/users/loginForm.js'
+import loginForm from './reducers/forms/loginForm.js'
 
 const reducer = combineReducers({ 
   users: usersReducer,
