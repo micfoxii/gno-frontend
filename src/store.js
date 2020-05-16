@@ -2,10 +2,14 @@ import thunk from 'redux-thunk'
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import usersReducer from './reducers/users/users.js'
 import currentUser from './reducers/users/currentUser.js'
+import locationsReducer from './reducers/locations/locations.js'
+import currentLocation from './reducers/locations/currentLocation.js'
 
 const reducer = combineReducers({ 
   users: usersReducer,
-  currentUser
+  currentUser,
+  locations: locationsReducer,
+  currentLocation
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
