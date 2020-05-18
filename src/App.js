@@ -5,33 +5,30 @@ import Logout from './components/forms/Logout.js'
 
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/users/currentUser'
-import { fetchLocations } from './actions/locations/locations'
+// import { fetchLocations } from './actions/locations/locations'
 
 
 
 class App extends React.Component {
   
   componentDidMount(){
-    // this.props.getCurrentUser()
+    this.props.getCurrentUser()
     // this.props.fetchLocations()
   }
 
   render() {
-    // const {locations} = this.props
-    
     return (
-      <>
-        <h1>This is where I put things</h1>
-        <Login />
-        <Logout />
-      </> 
+      
+        this.props.currentUser ? <Logout /> : <Login />
+        
     );
   }
 }  
   
-  const mapStateToProps = state => {
+  const mapStateToProps = ({ currentUser }) => {
     return({
-      locations: state.locations
+      currentUser
+      // locations: state.locations
     })
   }
 
