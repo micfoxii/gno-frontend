@@ -3,15 +3,17 @@ import './App.css';
 import Login from './components/forms/Login.js'
 
 import { connect } from 'react-redux'
-import { fetchLocations } from './actions/locations/locations'
+import { getCurrentUser } from './actions/users/currentUser'
+// import { fetchLocations } from './actions/locations/locations'
 
 
 
 class App extends React.Component {
   
-  // componentDidMount(){
-  //   this.props.fetchLocations()
-  // }
+  componentDidMount(){
+    // this.props.getCurrentUser()
+    // this.props.fetchLocations()
+  }
 
   render() {
     // const {locations} = this.props
@@ -34,4 +36,4 @@ class App extends React.Component {
 
 
 
-export default connect(mapStateToProps, {fetchLocations})(App)
+export default connect(mapStateToProps, { getCurrentUser })(App)

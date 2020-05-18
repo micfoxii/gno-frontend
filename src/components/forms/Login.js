@@ -11,7 +11,7 @@ const Login = ({ loginForm, updateLoginForm, login }) => {
     }
 
     const handleSubmit = event => {
-        event.PreventDefault()
+        event.preventDefault()
         login(loginForm)
     }
 

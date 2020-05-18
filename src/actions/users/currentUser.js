@@ -19,6 +19,7 @@ export const login = credentials => {
     console.log("login credentials: ", credentials)
     return dispatch => {
         return fetch("http://localhost:3001/login", {
+            credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,4 +27,8 @@ export const login = credentials => {
             body: JSON.stringify(credentials)
         })
     }
+}
+
+export const getCurrentUser = () => {
+    
 }
