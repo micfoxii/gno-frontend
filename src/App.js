@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Login from './components/forms/Login.js'
+import Logout from './components/forms/Logout.js'
 
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/users/currentUser'
@@ -22,6 +23,7 @@ class App extends React.Component {
       <>
         <h1>This is where I put things</h1>
         <Login />
+        <Logout />
       </> 
     );
   }

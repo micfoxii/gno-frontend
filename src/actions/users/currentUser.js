@@ -6,9 +6,10 @@ export const setCurrentUser = user => {
     }
 }
 
-export const clearCurrentUser => {
+export const clearCurrentUser = user => {
     return {
-        type: "CLEAR_CURRENT_USER"
+        type: "CLEAR_CURRENT_USER",
+        user
     }
 }
 
