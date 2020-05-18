@@ -14,7 +14,7 @@ class App extends React.Component {
   // }
 
   render() {
-    const {locations} = this.props
+    // const {locations} = this.props
     
     return (
       <>
