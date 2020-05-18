@@ -38,6 +38,14 @@ export const login = credentials => {
     }
 }
 
+export const logout = () => {
+    return(dispatch) => {
+        return fetch('http://localhost:3001/logout', {
+            credentials: 'include',
+            method: 'DELETE'
+        })
+    }
+}
 export const getCurrentUser = credentials => {
     console.log("login credentials: ", credentials)
     return dispatch => {
