@@ -4,7 +4,7 @@ import Login from './components/forms/Login.js'
 
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/users/currentUser'
-// import { fetchLocations } from './actions/locations/locations'
+import { fetchLocations } from './actions/locations/locations'
 
 
 
