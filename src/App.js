@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+
+import { connect } from 'react-redux'
+import { getCurrentUser } from './actions/users/currentUser.js'
+
 import Login from './components/forms/Login.js'
 import Logout from './components/forms/Logout.js'
 
-import { connect } from 'react-redux'
-import { getCurrentUser } from './actions/users/currentUser'
+
 // import { fetchLocations } from './actions/locations/locations'
 
 

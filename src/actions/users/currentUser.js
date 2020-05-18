@@ -6,20 +6,13 @@ export const setCurrentUser = user => {
     }
 }
 
-export const clearCurrentUser = user => {
+export const clearCurrentUser = () => {
     return {
-        type: "CLEAR_CURRENT_USER",
-        user
+        type: "CLEAR_CURRENT_USER"
     }
 }
 
 //ASYNC
-
-// export const login = credentials => {
-//     return dispatch => {
-//         return fetch("http://localhost:3000/users)
-//     }
-// }
 
 export const login = credentials => {
     console.log("login credentials: ", credentials)
@@ -35,9 +28,9 @@ export const login = credentials => {
         .then(resp => resp.json())
         .then( user => {
             if (user.error) {
-                alert(user.error)
+                alert("please sign in")
             } else {
-                dispatch(setCurrentUser(user))
+                dispatch(setCurrentUser(user.data))
             }
         })
         .catch(console.log)
@@ -53,23 +46,23 @@ export const logout = () => {
         })
     }
 }
-export const getCurrentUser = credentials => {
-    console.log("login credentials: ", credentials)
+
+export const getCurrentUser = () => {
+    console.log("dispatch: GET_CURRENT_USER")
     return dispatch => {
-        return fetch("http://localhost:3001/login", {
+        return fetch("http://localhost:3001/get_current_user", {
             credentials: "include",
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(credentials)
         })
         .then(resp => resp.json())
         .then( user => {
             if (user.error) {
                 alert(user.error)
             } else {
-                dispatch(setCurrentUser(user))
+                dispatch(setCurrentUser(user.data))
             }
         })
         .catch(console.log)
