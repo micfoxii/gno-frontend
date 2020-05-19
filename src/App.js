@@ -18,7 +18,7 @@ class App extends React.Component {
     this.props.getCurrentUser()
     // this.props.fetchLocations()
   }
-
+  // const { loggedIn } = this.props 
   render() {
     return (
       
