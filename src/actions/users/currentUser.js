@@ -28,7 +28,7 @@ export const login = (credentials, history) => {
         .then(resp => resp.json())
         .then( r => {
             if (r.error) {
-                alert("please sign in")
+                alert(r.error)
             } else {
                 dispatch(setCurrentUser(r.data))
                 history.push('/')
@@ -59,7 +59,7 @@ export const getCurrentUser = () => {
             },
         })
         .then(resp => resp.json())
-        .then( response => {
+        .then(response => {
             if (response.error) {
                 alert(response.error)
             } else {
