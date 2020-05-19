@@ -28,9 +28,9 @@ class App extends React.Component {
   }
 }  
   
-  const mapStateToProps = ({ currentUser }) => {
+  const mapStateToProps = state => {
     return({
-      currentUser
+      loggedIn: !!state.currentUser
       // locations: state.locations
     })
   }
