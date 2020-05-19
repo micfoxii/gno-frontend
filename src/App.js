@@ -28,9 +28,9 @@ class App extends React.Component {
   }
 }  
   
-  const mapStateToProps = ({ setCurrentUser }) => {
+  const mapStateToProps = ({ currentUser }) => {
     return({
-      setCurrentUser
+      currentUser
       // locations: state.locations
     })
   }
