@@ -8,7 +8,7 @@ import Login from './components/forms/Login.js'
 import Logout from './components/forms/Logout.js'
 
 
-// import { fetchLocations } from './actions/locations/locations'
+// import { fetchLocations } from './actions/locations/locations.js'
 
 
 
@@ -18,7 +18,7 @@ class App extends React.Component {
     this.props.getCurrentUser()
     // this.props.fetchLocations()
   }
-  // const { loggedIn } = this.props 
+
   render() {
     return (
       
