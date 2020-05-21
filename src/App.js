@@ -7,6 +7,9 @@ import { fetchLocations } from './actions/locations/locations.js'
 
 import Login from './components/forms/Login.js'
 import Logout from './components/forms/Logout.js'
+import Locations from './components/locations/Locations.js'
+import LocationCard from './components/locations/LocationCard.js'
+import { Route, Switch } from 'react-router-dom';
 
 
 // import { fetchLocations } from './actions/locations/locations.js'
@@ -21,9 +24,23 @@ class App extends React.Component {
   }
 
   render() {
+    const { loggedIn, locations } = this.props
     return (
-      
-        this.props.loggedIn ? <Logout /> : <Login />
+      <div>
+        {loggedIn ? <Logout /> : <Login /> //,
+                // <Locations />
+        }
+        <Switch>
+          <Route exact path="/locations" component={Locations} />
+          <Route exact path="/locations/:id" render={props => {
+            const loc = loc.find(loc => loc.id === props.match.params.id)
+            console.log(loc)
+            return <LocationCard location={loc} {...props} />
+            }
+          }/>
+        </Switch>
+      </div>
+        
         
         
     );
@@ -32,8 +49,8 @@ class App extends React.Component {
   
   const mapStateToProps = state => {
     return({
-      loggedIn: !!state.currentUser
-      // locations: state.locations
+      loggedIn: !!state.currentUser,
+      locations: state.locations
     })
   }
 

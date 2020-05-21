@@ -33,6 +33,7 @@ export const login = (credentials) => {
                 alert(r.error)
             } else {
                 dispatch(setCurrentUser(r.data))
+                dispatch(fetchLocations(r.data))
                 // history.push('/')
             }
         })
