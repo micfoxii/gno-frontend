@@ -3,7 +3,7 @@ import './App.css';
 
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/users/currentUser.js'
-// import { setLocations } from './actions/locations/locations.js'
+import { fetchLocations } from './actions/locations/locations.js'
 
 import Nav from './components/elements/Nav.js'
 import MainBody from './components/elements/MainBody.js'
@@ -40,9 +40,9 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/locations" component={Locations} />
           <Route exact path="/locations/:id" render={props => {
-            const location = locations.find(location => location.id === props.match.params.id)
-            console.log(location)
-            return <LocationCard location={location} {...props} />
+            const loc = locations.find(loc => loc.id === props.match.params.id)
+            console.log(loc)
+            return <LocationCard location={loc} {...props} />
             }
           }/>
         </Switch>
@@ -54,15 +54,15 @@ class App extends React.Component {
   }
 }  
   
-  // const mapStateToProps = state => {
-  //   return({
-  //     loggedIn: !!state.currentUser
-  //     // ,
-  //     // locations: state.locations
-  //   })
-  // }
+  const mapStateToProps = state => {
+    return({
+      loggedIn: !!state.currentUser
+      // ,
+      // locations: state.locations
+    })
+  }
 
 
 
 
-export default withRouter(connect(null, { getCurrentUser })(App))
+export default withRouter(connect(mapStateToProps, { getCurrentUser, fetchLocations })(App))
