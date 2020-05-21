@@ -10,8 +10,9 @@ export const getLocations = locations => {
 
 //ASYNC
 
-export function fetchLocations() {
-    return fetch("http://localhost:3001/locations", {
+export const fetchLocations = () => {
+    return dispatch => { 
+        return fetch("http://localhost:3001/locations", {
 
         method: "GET",
         headers: {
@@ -19,12 +20,13 @@ export function fetchLocations() {
         },
     })
         .then(resp => resp.json())
-        .then(locations => {
-            if (locations.error) {
-                alert(locations.error)
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
             } else {
-                dispatchEvent(getLocations(locations.data))
+                dispatch(getLocations(response.data))
             }
         })
         .catch(console.log)
     }
+}
