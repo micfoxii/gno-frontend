@@ -8,8 +8,8 @@ import { getCurrentUser } from './actions/users/currentUser.js'
 import Nav from './components/elements/Nav.js'
 import MainBody from './components/elements/MainBody.js'
 
-import Login from './components/forms/Login.js'
-import Logout from './components/forms/Logout.js'
+// import Login from './components/forms/Login.js'
+// import Logout from './components/forms/Logout.js'
 import Locations from './components/locations/Locations.js'
 import LocationCard from './components/locations/LocationCard.js'
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -27,16 +27,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, locations } = this.props
+    // const { loggedIn, locations } = this.props
     return (
       <div>
-        {loggedIn ? <Logout /> : <Login /> //,
+        {/* {loggedIn ? <Logout /> : <Login /> //,
                 // <Locations />
-        }
+        } */}
         <Nav />
         <MainBody />
 
-        <Switch>
+        {/* <Switch>
           <Route exact path="/locations" component={Locations} />
           <Route exact path="/locations/:id" render={props => {
             const location = locations.find(location => location.id === props.match.params.id)
@@ -44,7 +44,7 @@ class App extends React.Component {
             return <LocationCard location={location} {...props} />
             }
           }/>
-        </Switch>
+        </Switch> */}
       </div>
         
         
