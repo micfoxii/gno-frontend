@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom'
 
 
 const Locations = props => {
-        const locationCards = props.locations.length > 0 ?
+        const locationCard = props.locations.length > 0 ?
         props.locations.map(loc => (
-            <p key={loc.id}>{loc.attributes.city_name}</p>
+            <li key={loc.id}><Link to={`/locations/${loc.id}`}>{loc.attributes.city_name}</Link></li>
         )) : null
     
-    return locationCards
+    return (
+        <div>
+            <h3> Select a Location you would like to explore: </h3>
+            <li> `{locationCard}` </li>
+        </div>
+    )
 }
 
 const mapStateToProps = state => {
     return {
-        locations: state.locations
+        locations: state.locationsReducer
     }
 }
 

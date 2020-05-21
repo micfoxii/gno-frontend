@@ -1,8 +1,8 @@
 // SYNC
 
-export const setLocations = locations => {
+export const getLocations = locations => {
     return {
-        type: "SET_LOCATIONS",
+        type: "GET_LOCATIONS",
         locations
     }
 }
@@ -14,18 +14,19 @@ export const fetchLocations = () => {
     console.log("Fetching Locations")
     return dispatch => { 
         return fetch("http://localhost:3001/locations", {
-        credentials: "include",
+        // credentials: "include",
         method: "GET",
         headers: {
         "Content-Type": "application/json"
         },
     })
         .then(resp => resp.json())
-        .then(response => {
-            if (response.error) {
-                alert(response.error)
+        .then(locations => {
+            if (locations.error) {
+                alert(locations.error)
             } else {
-                dispatch(setLocations(response.data))
+                console.log('hit dispatch')
+                dispatch(getLocations(locations.data))
             }
         })
         .catch(console.log)
