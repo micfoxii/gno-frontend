@@ -67,7 +67,7 @@ export const getCurrentUser = () => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                dispatch(fetchLocations())
+                dispatch(fetchLocations(response.data))
             }
         })
         .catch(console.log)
