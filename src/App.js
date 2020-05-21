@@ -27,15 +27,15 @@ class App extends React.Component {
     const { loggedIn, locations } = this.props
     return (
       <div>
-        {loggedIn ? <Logout /> : <Login /> //,
+        {this.props.loggedIn ? <Logout /> : <Login /> //,
                 // <Locations />
         }
         <Switch>
           <Route exact path="/locations" component={Locations} />
           <Route exact path="/locations/:id" render={props => {
-            const loc = loc.find(loc => loc.id === props.match.params.id)
-            console.log(loc)
-            return <LocationCard location={loc} {...props} />
+            const location = locations.find(location => location.id === props.match.params.id)
+            console.log(location)
+            return <LocationCard location={location} {...props} />
             }
           }/>
         </Switch>
