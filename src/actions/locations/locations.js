@@ -1,8 +1,8 @@
 // SYNC
 
-export const getLocations = locations => {
+export const setLocations = locations => {
     return {
-        type: "GET_LOCATIONS",
+        type: "SET_LOCATIONS",
         locations
     }
 }
@@ -25,7 +25,7 @@ export const fetchLocations = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(getLocations(response.data))
+                dispatch(setLocations(response.data))
             }
         })
         .catch(console.log)

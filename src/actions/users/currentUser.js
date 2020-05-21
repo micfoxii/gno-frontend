@@ -16,7 +16,7 @@ export const clearCurrentUser = () => {
 
 //ASYNC
 //(credentials, history)
-export const login = (credentials) => { 
+export const login = (credentials, history) => { 
     console.log("login credentials: ", credentials)
     return dispatch => {
         return fetch("http://localhost:3001/login", {
@@ -34,7 +34,7 @@ export const login = (credentials) => {
             } else {
                 dispatch(setCurrentUser(r.data))
                 dispatch(fetchLocations(r.data))
-                // history.push('/')
+                history.push('/')
             }
         })
         .catch(console.log)
@@ -67,7 +67,7 @@ export const getCurrentUser = () => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                dispatch(fetchLocations(response.data))
+                dispatch(fetchLocations())
             }
         })
         .catch(console.log)
