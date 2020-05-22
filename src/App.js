@@ -39,10 +39,11 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/locations" component={Locations} />
-          <Route exact path="/locations/:id" render={props => {
+          <Route exact path="/locations/:id" render={ props => {
+            // debugger
             const loc = locations.find(loc => loc.id === props.match.params.id)
             console.log(loc)
-            return <LocationCard location={loc} {...props} />
+            return <LocationCard loc={loc} {...props} />
             }
           }/>
         </Switch>

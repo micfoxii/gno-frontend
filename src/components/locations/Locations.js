@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Locations = props => {
         const locationCard = props.locations.length > 0 ?
         props.locations.map(loc => (
-            <li key={loc.id}><Link to={`/locations/${loc.id}`}>{loc.city_name}</Link></li>
+            <li key={loc.id}><Link to={`/locations/${loc.id}`}>{loc.city_name}, {loc.state_name}, {loc.country_name} </Link></li>
         )) : null
     
     return (
