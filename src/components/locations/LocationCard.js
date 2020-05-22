@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const LocationCard = ({ loc }) => {
-    debugger
+    console.log("location card:", loc)
     return (
         loc.length > 0 ?
         <div> 

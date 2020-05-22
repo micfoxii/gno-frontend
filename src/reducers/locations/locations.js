@@ -5,6 +5,8 @@ export default (state = initialState, action) => {
 
         case "GET_LOCATIONS":
             return action.locations
+        case "GET_LOCATION":
+            return action.location
         default:
             return state
     }
