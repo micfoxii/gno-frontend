@@ -1,8 +1,4 @@
-const initialState = {
-    city_name: '',
-    state_name: '',
-    country_name: ''
-}
+const initialState = []
 
 export default (state = initialState, action) => {
     switch(action.type){

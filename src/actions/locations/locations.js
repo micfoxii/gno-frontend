@@ -21,12 +21,14 @@ export const fetchLocations = () => {
         },
     })
         .then(resp => resp.json())
-        .then(locations => {
-            if (locations.error) {
-                alert(locations.error)
+        .then(response => {
+            // debugger
+            if (response.error) {
+                alert(response.error)
             } else {
-                console.log('hit dispatch')
-                dispatch(getLocations(locations.data))
+                console.log(response)
+                // debugger
+                dispatch(getLocations(response))
             }
         })
         .catch(console.log)
