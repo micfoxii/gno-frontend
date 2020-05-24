@@ -4,6 +4,7 @@ import usersReducer from './reducers/users/users.js'
 import currentUser from './reducers/users/currentUser.js'
 import locationsReducer from './reducers/locations/locations.js'
 import currentLocation from './reducers/locations/currentLocation.js'
+import destinationsReducer from './reducers/destinations/destinations.js'
 
 import loginForm from './reducers/forms/loginForm.js'
 
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   currentUser,
   locations: locationsReducer,
   currentLocation,
-  loginForm
+  loginForm, 
+  destinations: destinationsReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

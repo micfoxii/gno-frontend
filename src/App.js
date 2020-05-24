@@ -4,6 +4,7 @@ import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/users/currentUser.js'
 import { fetchLocations } from './actions/locations/locations.js'
+import { fetchDestinations } from './actions/destinations/destinations.js'
 
 import Nav from './components/elements/Nav.js'
 import MainBody from './components/elements/MainBody.js'
@@ -24,6 +25,7 @@ class App extends React.Component {
   componentDidMount(){
     this.props.getCurrentUser()
     this.props.fetchLocations()
+    this.props.fetchDestinations()
   }
 
   render() {
@@ -66,4 +68,4 @@ class App extends React.Component {
 
 
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, fetchLocations })(App))
+export default withRouter(connect(mapStateToProps, { getCurrentUser, fetchLocations, fetchDestinations })(App))
