@@ -20,7 +20,7 @@ const Locations = props => {
 const mapStateToProps = state => {
     return {
         locations: state.locations
-        // destinations: state.locations.destinations 
+        // destinations: state.destinationsReducer
     }
 }
 

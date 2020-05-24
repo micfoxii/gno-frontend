@@ -42,12 +42,14 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/locations" component={Locations} />
           <Route exact path="/locations/:id" render={ props => {
-            // debugger
-            const loc = locations.find(loc => loc.id === props.match.params.id)
-            console.log(loc)
-            return <LocationCard loc={loc} {...props} />
+            console.log("Locations:", locations)
+            console.log("Props:", props)
+
+            const location = locations.find(location => location.id === props.match.params.id)
+            console.log(location)
+            return <LocationCard location={location}{...props} />
             }
-          }/>
+          } />
         </Switch>
       </div>
         
@@ -60,8 +62,8 @@ class App extends React.Component {
   const mapStateToProps = state => {
     return({
       loggedIn: !!state.currentUser
-      // ,
-      // locations: state.locations
+      ,
+      locations: state.locations
     })
   }
 

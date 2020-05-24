@@ -13,8 +13,8 @@ const reducer = combineReducers({
   currentUser,
   locations: locationsReducer,
   currentLocation,
+  destinationsReducer,
   loginForm, 
-  destinations: destinationsReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
