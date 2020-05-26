@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 
 const Locations = props => {
-    // debugger
         const locationCards = props.locations.length > 0 ?
         props.locations.map(loc => ( 
             <li key={loc.attributes.id}><Link to={`/locations/${loc.attributes.id}`}>{loc.attributes.city_name}, {loc.attributes.state_name}, {loc.attributes.country_name} </Link></li>

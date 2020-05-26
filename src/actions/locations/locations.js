@@ -32,7 +32,7 @@ export const fetchLocations = () => {
             if (locations.error) {
                 alert(locations.error)
             } else {
-                console.log(locations)
+                console.log("Locations Response:", locations)
                 // debugger
                 dispatch(getLocations(locations.data))
             }

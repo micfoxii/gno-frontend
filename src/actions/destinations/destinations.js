@@ -43,27 +43,6 @@ export const fetchDestinations = () => {
 
 export const fetchDestination = (destinationData) => {
     return dispatch => {
-        return fetch( `http://localhost:3001/destinations/${destinationData.id}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-        .then(response => response.json())
-        .then(loc => {
-            if (loc.error){
-                alert(loc.error)
-            } else {
-                dispatch(getDestination(loc.data))
-            }
-        })
-        .catch(console.log)
-    }
-}
-
-
-export const fetchDestination = (destinationData) => {
-    return dispatch => {
         return fetch( `http://localhost:3001/locations/${destinationData.id}`, {
             method: "GET",
             headers: {

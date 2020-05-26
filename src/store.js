@@ -13,7 +13,7 @@ const reducer = combineReducers({
   currentUser,
   locations: locationsReducer,
   currentLocation,
-  destinationsReducer,
+  destinations: destinationsReducer,
   loginForm, 
 })
 

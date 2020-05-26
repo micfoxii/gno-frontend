@@ -16,6 +16,7 @@ import LocationCard from './components/locations/LocationCard.js'
 
 import Destinations from './components/destinations/Destinations.js'
 import DestinationCard from './components/destinations/DestinationCard.js'
+
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 
@@ -33,6 +34,7 @@ class App extends React.Component {
 
   render() {
     const { locations, destinations } = this.props
+    console.log("GEN PROPS:", this.props)
     return (
       <div className="App">
         
@@ -74,7 +76,8 @@ class App extends React.Component {
     return({
       // loggedIn: !!state.currentUser
       // ,
-      locations: state.locations
+      locations: state.locations,
+      destinations: state.destinations
     })
   }
 
