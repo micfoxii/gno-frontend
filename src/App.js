@@ -29,25 +29,23 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, locations } = this.props
+    const { locations } = this.props
     return (
-      <div>
-        {/* {loggedIn ? <Logout /> : <Login /> //,
-                // <Locations />
-        } */}
+      <div className="App">
+        
         <Nav />
         <MainBody />
 
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/locations" component={Locations} />
-          <Route exact path="/locations/:id" render={ props => {
+          <Route exact path="/locations/:id" render= { props => {
             console.log("Locations:", locations)
             console.log("Props:", props)
 
-            const location = locations.find(location => location.id === props.match.params.id)
-            console.log(location)
-            return <LocationCard location={location}{...props} />
+            const loc = locations.find(loc => loc.id === props.match.params.id)
+            console.log(loc)
+            return <LocationCard loc={loc}{...props} />
             }
           } />
         </Switch>
@@ -61,8 +59,8 @@ class App extends React.Component {
   
   const mapStateToProps = state => {
     return({
-      loggedIn: !!state.currentUser
-      ,
+      // loggedIn: !!state.currentUser
+      // ,
       locations: state.locations
     })
   }

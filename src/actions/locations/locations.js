@@ -7,34 +7,34 @@ export const getLocations = locations => {
     }
 }
 
-export const getLocation = location => {
+export const getLocation = loc => {
     return {
         type: "GET_LOCATION",
-        location
+        loc
     }
 }
 
 //ASYNC
 
 export const fetchLocations = () => {
-    console.log("Fetching Locations")
+    console.log("dispatch: Fetching Locations")
     return dispatch => { 
         return fetch("http://localhost:3001/locations", {
-        // credentials: "include",
+        credentials: "include",
         method: "GET",
         headers: {
         "Content-Type": "application/json"
         },
     })
         .then(resp => resp.json())
-        .then(response => {
+        .then(locations => {
             // debugger
-            if (response.error) {
-                alert(response.error)
+            if (locations.error) {
+                alert(locations.error)
             } else {
-                console.log(response)
+                console.log(locations)
                 // debugger
-                dispatch(getLocations(response))
+                dispatch(getLocations(locations.data))
             }
         })
         .catch(console.log)
