@@ -60,3 +60,24 @@ export const fetchDestination = (destinationData) => {
         .catch(console.log)
     }
 }
+
+
+export const fetchDestination = (destinationData) => {
+    return dispatch => {
+        return fetch( `http://localhost:3001/locations/${destinationData.id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then(response => response.json())
+        .then(dest => {
+            if (dest.error){
+                alert(dest.error)
+            } else {
+                dispatch(getDestination(dest.data))
+            }
+        })
+        .catch(console.log)
+    }
+}
