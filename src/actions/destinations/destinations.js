@@ -20,21 +20,21 @@ export const fetchDestinations = () => {
     console.log("Fetching Destinations")
     return dispatch => { 
         return fetch("http://localhost:3001/destinations", {
-        // credentials: "include",
+        credentials: "include",
         method: "GET",
         headers: {
         "Content-Type": "application/json"
         },
     })
         .then(resp => resp.json())
-        .then(response => {
+        .then(destinations => {
             // debugger
-            if (response.error) {
-                alert(response.error)
+            if (destinations.error) {
+                alert(destinations.error)
             } else {
-                console.log(response)
+                console.log("destinations response:", destinations)
                 // debugger
-                dispatch(getDestinations(response))
+                dispatch(getDestinations(destinations.data))
             }
         })
         .catch(console.log)

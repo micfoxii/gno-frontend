@@ -13,6 +13,9 @@ import Login from './components/forms/Login.js'
 // import Logout from './components/forms/Logout.js'
 import Locations from './components/locations/Locations.js'
 import LocationCard from './components/locations/LocationCard.js'
+
+import Destinations from './components/destinations/Destinations.js'
+import DestinationCard from './components/destinations/DestinationCard.js'
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 
@@ -29,7 +32,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { locations } = this.props
+    const { locations, destinations } = this.props
     return (
       <div className="App">
         
@@ -48,6 +51,16 @@ class App extends React.Component {
             return <LocationCard loc={loc}{...props} />
             }
           } />
+          <Route exact path="/destinations" component={Destinations} />
+          <Route exact path="/destinations/:id" render= { props => {
+            console.log("Destinations:", destinations)
+            console.log("Destination Props:", props) 
+            
+            const dest = destinations.find(dest => dest.id === props.match.params.id)
+            console.log(dest)
+            return <DestinationCard dest={dest}{...props} />
+            } 
+          }/>
         </Switch>
       </div>
         
